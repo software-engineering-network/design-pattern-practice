@@ -1,19 +1,19 @@
+using System;
+using System.Collections.Generic;
+
 namespace Strategy.Jarrod
 {
     public class TaskSchedulerFactory
     {
-        public static ITaskScheduler Create(UnscheduledTask unscheduledTask)
-        {
-            switch (unscheduledTask.Criteria)
-            {
-                case PseudoCriteria.Urgent:
-                    return new ImmediatelyTaskScheduler();
-                case PseudoCriteria.Routine:
-                    return new TuesdayTaskScheduler();
-                case PseudoCriteria.Optional:
-                default:
-                    return new EventuallyTaskScheduler();
-            }
-        }
+        private static Dictionary<PseudoCriteria, Func<ITaskScheduler>> taskSchedulers =
+            new Dictionary<PseudoCriteria, Func<ITaskScheduler>>()
+            { 
+                { PseudoCriteria.Optional, () => new EventuallyTaskScheduler() }, 
+                { PseudoCriteria.Routine, () => new TuesdayTaskScheduler() }, 
+                { PseudoCriteria.Urgent, () => new ImmediatelyTaskScheduler() }
+            };
+
+        public static ITaskScheduler Create(UnscheduledTask unscheduledTask) =>
+            taskSchedulers[unscheduledTask.Criteria]();
     }
 }

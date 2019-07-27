@@ -18,7 +18,7 @@ I consider using the Strategy pattern when alternate implementations of the same
 
 I actually enjoyed the simplification of the business logic into two separate pseudo enums.  I've done the pattern enough that its implementation wasn't a problem - illustrating the point without the code becoming too convoluted was the primary goal.
 
-I really hate the classic "choose a sorting strategy example" because the end result is the same and it betrays the point of the pattern.  It doesn't matter if you bubble sort or quick sort - the list ends up in the same state afterwards (ignoring stability).  In my opinion, a better sorting example would be to sort a collection of objects off of a different property (e.g. last name vs first name).
+I really hate the classic "choose a sorting strategy example" because the end result is the same and it obscures the usefulness of the pattern.  It doesn't matter if you bubble sort or quick sort - the list ends up in the same state afterwards (ignoring stability).  In my opinion, a better sorting example would be to sort a collection of objects off of a different property (e.g. last name vs first name).
 
 ## Review (pattern)
 
