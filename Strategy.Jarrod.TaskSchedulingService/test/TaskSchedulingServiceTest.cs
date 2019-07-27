@@ -9,21 +9,38 @@ namespace Strategy.Jarrod.Test
 {
     public class TaskSchedulingServiceTest
     {
-        [Fact]
-        public void WhenSchedulingTasks_ForToday_ItCreatesScheduledTasksForToday()
+        private TaskSchedulingService taskSchedulingService;
+        private ICollection<UnscheduledTask> unscheduledTasks;
+
+        public TaskSchedulingServiceTest()
         {
-            var unscheduledTasks = new List<UnscheduledTask>()
+            taskSchedulingService = new TaskSchedulingService();
+            unscheduledTasks = new List<UnscheduledTask>()
             {
-                new UnscheduledTask { DesiredDate = PseudoDate.Today },
-                new UnscheduledTask { DesiredDate = PseudoDate.Today }
+                new UnscheduledTask { Criteria = PseudoCriteria.Routine },
+                new UnscheduledTask { Criteria = PseudoCriteria.Urgent },
+                new UnscheduledTask { Criteria = PseudoCriteria.Urgent }
             };
+        }
 
-            var taskSchedulingService = new TaskSchedulingService();
+        [Fact]
+        public void WhenSchedulingTasks_ThatAreRoutine_ItSchedulesTasksForTuesday()
+        {
+            var tomorrowTasks = taskSchedulingService.ScheduleTasks(unscheduledTasks)
+                .Where(x => x.ScheduledDate == PseudoDate.Tuesday);
 
-            var todayTasks = taskSchedulingService.ScheduleTasks(unscheduledTasks).Where(x => x.ScheduledDate == PseudoDate.Today);
+            tomorrowTasks.Should().HaveSameCount(unscheduledTasks.Where(x => x.Criteria == PseudoCriteria.Routine));
+            tomorrowTasks.Should().OnlyContain(x => x.ScheduledDate == PseudoDate.Tuesday);
+        }
 
-            todayTasks.Should().HaveSameCount(unscheduledTasks.Where(x => x.DesiredDate == PseudoDate.Today));
-            todayTasks.Should().OnlyContain(x => x.ScheduledDate == PseudoDate.Today);
+        [Fact]
+        public void WhenSchedulingTasks_ThatAreUrgent_ItSchedulesTasksForImmediateExecution()
+        {
+            var nowTasks = taskSchedulingService.ScheduleTasks(unscheduledTasks)
+                .Where(x => x.ScheduledDate == PseudoDate.Immediately);
+
+            nowTasks.Should().HaveSameCount(unscheduledTasks.Where(x => x.Criteria == PseudoCriteria.Urgent));
+            nowTasks.Should().OnlyContain(x => x.ScheduledDate == PseudoDate.Immediately);
         }
     }
 }

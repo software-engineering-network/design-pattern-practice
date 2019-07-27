@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace Strategy.Jarrod
 {
+    /// <summary>
+    /// Context
+    /// </summary>
     public class TaskSchedulingService
     {
         public ICollection<ScheduledTask> ScheduleTasks(ICollection<UnscheduledTask> unscheduledTasks)
@@ -10,7 +13,7 @@ namespace Strategy.Jarrod
 
             foreach (var task in unscheduledTasks)
             {
-                var taskScheduler = new TodayTaskScheduler();
+                var taskScheduler = TaskSchedulerFactory.Create(task.Criteria);
                 var scheduledTask = taskScheduler.Schedule(task);
                 scheduledTasks.Add(scheduledTask);
             }

@@ -7,6 +7,6 @@ namespace Strategy.Jarrod
 
     public class UnscheduledTask
     {
-        public PseudoDate DesiredDate { get; set; }
+        public PseudoCriteria Criteria { get; set; }
     }
 }
