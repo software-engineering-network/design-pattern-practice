@@ -9,8 +9,10 @@ namespace Strategy.Jarrod
                 case PseudoCriteria.Urgent:
                     return new ImmediatelyTaskScheduler();
                 case PseudoCriteria.Routine:
-                default:
                     return new TuesdayTaskScheduler();
+                case PseudoCriteria.Optional:
+                default:
+                    return new EventuallyTaskScheduler();
             }
         }
     }

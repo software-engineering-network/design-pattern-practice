@@ -3,12 +3,14 @@ namespace Strategy.Jarrod
     public enum PseudoCriteria
     {
         Routine,
-        Urgent
+        Urgent,
+        Optional
     }
 
     public enum PseudoDate
     {
         Tuesday,
-        Immediately
+        Immediately,
+        Eventually
     }
 }

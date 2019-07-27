@@ -25,4 +25,13 @@ namespace Strategy.Jarrod
         public ScheduledTask Schedule(UnscheduledTask unscheduledTask) =>
             new ScheduledTask() { ScheduledDate = PseudoDate.Immediately };
     }
+
+    /// <summary>
+    /// Concrete Strategy
+    /// </summary>
+    public class EventuallyTaskScheduler : ITaskScheduler
+    {
+        public ScheduledTask Schedule(UnscheduledTask unscheduledTask) =>
+            new ScheduledTask() { ScheduledDate = PseudoDate.Eventually };
+    }
 }
