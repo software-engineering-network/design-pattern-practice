@@ -20,12 +20,11 @@ A repository for practicing Gang of Four design patterns
 1. Pick a design pattern from [here](https://www.dofactory.com/net/design-patterns).  Consider doing the same one others are doing.  The more perspectives we have per pattern, the better.
 2. Write a small, unique demonstration of the pattern.  Try to come up with a real-world scenario.  Try to limit the contents of the example to the pattern itself.
   * Complete your work on your own branch.
-  * Your demonstration **must** contain a test suite (e.g. xunit) or test app (e.g. a console app).
-  * Your demonstration **must** be its own project(s).  Use the following naming conventions:
+  * Your demonstration **should** be a test suite (e.g. xunit) or test app (e.g. a console app).  No need for multiple projects.
+  * Your demonstration **must** be its own project.  Use the following naming conventions:
     * PatternName.DeveloperName.Description (e.g. Strategy.Jarrod.TaskScheduler)
-    * PatternName.DeveloperName.Description.Test (e.g. Strategy.Jarrod.TaskScheduler.Test)
 3. Reflect on your experience.  This is the **most important** component of this exercise.  Write and include a readme.md in your main project.  Consider your reflection to be a living document of your understanding of the concept.  It should include (but not be limited to):
-  * **Purpose**:  In your own words, describe the pattern what it does.
+  * **Purpose**:  In your own words, describe the pattern and how your example works.
   * **Application**:  Think about how you would recognize a potential use case.  Maybe include an example from a time when it would have been useful in your work.
   * **Review (experience)**:  Review your experience of practicing the pattern.  For example:
     * Did you have trouble coming up with an example?
