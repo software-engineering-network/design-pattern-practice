@@ -2,9 +2,9 @@ namespace Strategy.Jarrod
 {
     public class TaskSchedulerFactory
     {
-        public static ITaskScheduler Create(PseudoCriteria pseudoCriteria)
+        public static ITaskScheduler Create(UnscheduledTask unscheduledTask)
         {
-            switch (pseudoCriteria)
+            switch (unscheduledTask.Criteria)
             {
                 case PseudoCriteria.Urgent:
                     return new ImmediatelyTaskScheduler();
