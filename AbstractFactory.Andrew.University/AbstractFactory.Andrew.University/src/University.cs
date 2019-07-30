@@ -5,12 +5,12 @@ using System.Text;
 namespace AbstractFactory.Andrew.University.src
 {
     //"Client" entity
-    class University
+    class EnrollmentService
     {
         private Course _course;
         private Student _student;
 
-        public University(CollegeFactory factory)
+        public EnrollmentService(ICollegeFactory factory)
         {
             _course = factory.CreateCourse();
             _student = factory.CreateStudent();

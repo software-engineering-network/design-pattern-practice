@@ -4,14 +4,14 @@ using System.Text;
 
 namespace AbstractFactory.Andrew.University.src
 {
-    class EngineeringFactory : CollegeFactory
+    class EngineeringFactory : ICollegeFactory
     {
-        public override Course CreateCourse()
+        public Course CreateCourse()
         {
             return new EngineeringCourse("Robotics");
         }
 
-        public override Student CreateStudent()
+        public Student CreateStudent()
         {
             return new EngineeringStudent("Stanley");
         }
@@ -24,27 +24,16 @@ namespace AbstractFactory.Andrew.University.src
             this.ClassName = ClassName;
             this.ClassList = new List<Student>();
         }
-        public override void AddStudent(Student x)
+        public override void AddStudent(Student stu)
         {
-            if (x is EngineeringStudent)
+            if (stu is EngineeringStudent)
             {
-                ClassList.Add(x);
+                ClassList.Add(stu);
             }
             else
             {
-                new Exception("" + x.Name + " is not in the Engineering College");
+                new Exception("" + stu.Name + " is not in the Engineering College");
             }
-        }
-        public override void RemoveStudent(Student x)
-        {
-            if (ClassList.Contains(x))
-            {
-                ClassList.Remove(x);
-            }
-        }
-        public override List<Student> ViewClassList()
-        {
-            return ClassList;
         }
     }
 

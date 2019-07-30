@@ -9,25 +9,25 @@ namespace AbstractFactory.Andrew.University.src
         [Fact]
         public void TestEngineeringEnrollmentt()
         {
-            EngineeringFactory EngFact = new EngineeringFactory();
+            EngineeringFactory engFact = new EngineeringFactory();
 
-            EnrollmentService Cincinnati = new EnrollmentService(EngFact);
-            Cincinnati.Enroll();
-            Assert.True("Stanley" == Cincinnati.ViewEnrolled()[0].Name);
-            Cincinnati.Deroll();
-            Assert.True(0 == Cincinnati.ViewEnrolled().Count);
+            EnrollmentService cincinnati = new EnrollmentService(engFact);
+            cincinnati.Enroll();
+            Assert.True("Stanley" == cincinnati.ViewEnrolled()[0].Name);
+            cincinnati.Deroll();
+            Assert.True(0 == cincinnati.ViewEnrolled().Count);
         }
 
         [Fact]
         public void TestBusinessEnrollment()
         {
-            BusinessFactory BusFact = new BusinessFactory();
+            BusinessFactory busFact = new BusinessFactory();
 
-            EnrollmentService Cincinnati = new EnrollmentService(BusFact);
-            Cincinnati.Enroll();
-            Assert.True("Chad" == Cincinnati.ViewEnrolled()[0].Name);
-            Cincinnati.Deroll();
-            Assert.True(0 == Cincinnati.ViewEnrolled().Count);
+            EnrollmentService cincinnati = new EnrollmentService(busFact);
+            cincinnati.Enroll();
+            Assert.True("Chad" == cincinnati.ViewEnrolled()[0].Name);
+            cincinnati.Deroll();
+            Assert.True(0 == cincinnati.ViewEnrolled().Count);
 
         }
     }

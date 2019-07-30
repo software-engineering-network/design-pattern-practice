@@ -4,19 +4,28 @@ using System.Text;
 
 namespace AbstractFactory.Andrew.University.src
 {
-    abstract class CollegeFactory
+    interface ICollegeFactory
     {
-        public abstract Course CreateCourse();
-        public abstract Student CreateStudent();
+        Course CreateCourse();
+        Student CreateStudent();
     }
 
     abstract class Course
     {
         protected List<Student> ClassList;
         public string ClassName;
-        public abstract void AddStudent(Student x);
-        public abstract void RemoveStudent(Student x);
-        public abstract List<Student> ViewClassList();
+        public abstract void AddStudent(Student stu);
+        public void RemoveStudent(Student stu)
+        {
+            if (ClassList.Contains(stu))
+            {
+                ClassList.Remove(stu);
+            }
+        }
+        public List<Student> ViewClassList()
+        {
+            return ClassList;
+        }
     }
 
     abstract class Student

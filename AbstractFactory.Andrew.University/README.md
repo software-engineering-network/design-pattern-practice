@@ -39,3 +39,17 @@ require a family of types, if they even require a large quantity of objects in t
 Would I like to use this in the future? Of course! However, I can't think of any recent endeavors
 that were lacking because they didn't have this solution. I look forward to recognizing a good
 time to employ an Abstract Factory.
+
+# Additional Thoughts
+
+After receiving feedback about my implementation, I have been made aware that the CollegeFactory
+abstract class could also serve as an interface. This is because it does not define any
+implementation for its member functions, and while an abstract class *can* do this, defining a
+structure with no implementations for how a subclass should use it is the *only* purpose of an
+interface. Interfaces are meant to put forth a sort of checklist for subclasses to follow, and
+that is exactly what the CollegeFactory abstract class was doing.
+
+I also need to pay more attention to kicking my habit of giving lazy names to variables that
+only exist within loops. I suppose my general thought process is that they are temporary, so
+why should I use relevent words when I could save them for more consequential pieces of code.
+But that's bad, I'll cut that out.
