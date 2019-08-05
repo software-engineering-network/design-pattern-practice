@@ -7,11 +7,7 @@ namespace TinyTypes.Gerhard.ProductService
 {
     public class ProductService
     {
-        public List<Product> Products
-        {
-            get;
-            private set;
-        }
+        public List<Product> Products { get; private set; }
 
         public ProductService()
         {
@@ -23,7 +19,8 @@ namespace TinyTypes.Gerhard.ProductService
             try
             {
                 Products.Add(new Product(productDTO));
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 HandleError(e);
             }

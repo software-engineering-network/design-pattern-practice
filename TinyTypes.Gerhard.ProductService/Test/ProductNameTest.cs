@@ -13,17 +13,13 @@ namespace TinyTypes.Gerhard.ProductService.Test
             Assert.Equal(productName.Value, validProductName);
         }
 
-        [Fact]
-        public void WhenProductName_IsNull_ItThrowsArgumentException()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData(" ")]
+        public void WhenProductName_IsNullEmptyOrWhitespace_ItThrowsArgumentException(string value)
         {
-            Assert.Throws<ArgumentException>(() => new ProductName(null));
-        }
-
-        [Fact]
-        public void WhenProductName_IsEmpty_ItThrowsArgumentException()
-        {
-            string emptyProductName = "";
-            Assert.Throws<ArgumentException>(() => new ProductName(emptyProductName));
+            Assert.Throws<ArgumentException>(() => new ProductName(value));
         }
 
         [Fact]
