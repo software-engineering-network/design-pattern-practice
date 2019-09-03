@@ -13,6 +13,7 @@ namespace Builder.Andrew.PCTechnician.src
             get { return computer; }
         }
 
+        public abstract void AddMotherboard();
         public abstract void AddProcessor();
         public abstract void AddStorage();
         public abstract void AddMemory();

@@ -8,6 +8,7 @@ namespace Builder.Andrew.PCTechnician.src
     {
         public void Assemble(ComputerBuilder computerBuilder)
         {
+            computerBuilder.AddMotherboard();
             computerBuilder.AddProcessor();
             computerBuilder.AddStorage();
             computerBuilder.AddMemory();

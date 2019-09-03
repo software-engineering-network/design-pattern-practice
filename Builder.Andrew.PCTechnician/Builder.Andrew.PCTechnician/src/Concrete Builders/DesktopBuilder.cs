@@ -11,9 +11,28 @@ namespace Builder.Andrew.PCTechnician.src.Concrete_Builders
             computer = new Computer("Desktop");
         }
 
+        public override void AddMotherboard()
+        {
+            Random random = new Random();
+            int selector = random.Next(2); //50/50 shot that you bought the right part
+            switch (selector)
+            {
+                case 0: //AMD board, processor won't fit
+                    computer.Motherboard = "MSI x470 AM4";
+                    break;
+                case 1: //this one will fit
+                    computer.Motherboard = "Gigabyte B360M LGA1151";
+                    break;
+            }
+        }
+
         public override void AddProcessor()
         {
-            computer.Processor = "Pentium Uno";
+            if (computer.Motherboard == "MSI x470 AM4" )
+            {
+                throw new Exception("Oh no! The processor you bought will not fit in the socket on this motherboard.");
+            }
+            else computer.Processor = "Pentium Uno";
         }
 
         public override void AddStorage()

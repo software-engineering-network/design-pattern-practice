@@ -14,7 +14,8 @@ namespace Builder.Andrew.PCTechnician.src
                 { "processor", "" },
                 { "storage", "" },
                 { "memory", "" },
-                { "cooling", "" }
+                { "cooling", "" },
+                { "motherboard", "" }
             };
 
         public Computer(string computerType)
@@ -67,6 +68,17 @@ namespace Builder.Andrew.PCTechnician.src
             set
             {
                 _components["cooling"] = value;
+            }
+        }
+
+        public string Motherboard {
+            get
+            {
+                return _components["motherboard"];
+            }
+            set
+            {
+                _components["motherboard"] = value;
             }
         }
 

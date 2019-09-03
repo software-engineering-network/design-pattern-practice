@@ -10,7 +10,7 @@ namespace Builder.Andrew.PCTechnician
         private readonly Workshop _workshop = new Workshop();
 
         [Fact]
-        public void TestDesktopBuilder()
+        public void WhenBuildingADesktop_AndRngChoosesTheCorrectBoard_AllPartsAreAssembledProperly()
         {
             ComputerBuilder technician = new DesktopBuilder();
             _workshop.Assemble(technician);
@@ -22,7 +22,7 @@ namespace Builder.Andrew.PCTechnician
         }
 
         [Fact]
-        public void TestLaptopBuilder()
+        public void WhenBuildingALaptop_AndRngChoosesTheCorrectBoard_AllPartsAreAssembledProperly()
         {
             ComputerBuilder technician = new LaptopBuilder();
             _workshop.Assemble(technician);
@@ -34,7 +34,7 @@ namespace Builder.Andrew.PCTechnician
         }
 
         [Fact]
-        public void TestTabletBuilder()
+        public void WhenBuildingATablet_AndRngChoosesTheCorrectBoard_AllPartsAreAssembledProperly()
         {
             ComputerBuilder technician = new TabletBuilder();
             _workshop.Assemble(technician);

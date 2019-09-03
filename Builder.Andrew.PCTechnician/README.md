@@ -39,3 +39,16 @@ arrive at a conclusion, while Abstract Factories lend more to constructing an ob
 like any other constructor. The similarities in these patterns allow for flexibility during
 development. If a developer determines that their factory method requires greater complexity than
 would be practical for a constructor, a Builder pattern implementation is within arm's reach
+
+# Revisitation (9/3/2019)
+
+In an effort to better demonstrate the actual purpose of the Builder Pattern, I added one quick
+instance of validation for each of the Builder subtypes. In an admittedly wonky and unideal turn
+of events brought about by the random nature of my implementation, the tests should each fail
+independently about 50% of the time... but they throw a custom exception so you know it really
+worked! The point is, sometimes when executing the code, it turns out that you (the user)
+accidentally bought the wrong "motherboard", and that will throw off the whole build. This
+demonstrates Builder's potential to accomodate much more consequential validation when certain
+parts of the object need to be built so that other parts of the building process can proceed
+smoothly. Also my test names are much longer, which seems silly in this project with just three
+tests but I can see how it will be useful in a project that has many more.
